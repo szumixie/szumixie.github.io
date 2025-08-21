@@ -9,6 +9,10 @@
   src: url("assets/fonts/LibertinusSans-Bold.otf");
 }
 
+:focus-visible {
+  outline: revert;
+}
+
 html {
   font-kerning: normal;
   font-family: "Libertinus Sans", sans-serif;
@@ -24,7 +28,7 @@ html {
 }
 
 body {
-  max-width: 36rem;
+  max-inline-size: 36rem;
   margin-block: 1rlh;
   margin-inline: 1rem;
 }
@@ -72,10 +76,6 @@ img.icon {
   height: 0.75rem;
   width: 0.75rem;
   vertical-align: middle;
-}
-
-:focus-visible {
-  outline: revert;
 }
 
 @media screen and (width >= calc((36 + 2) * 24px)) {
