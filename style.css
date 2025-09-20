@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "Libertinus Sans";
-  src: url("assets/fonts/LibertinusSans-Regular.otf");
+  font-family: "Ysabeau";
+  src: url("assets/fonts/Ysabeau-Regular.otf");
 }
 
 @font-face {
-  font-family: "Libertinus Sans";
+  font-family: "Ysabeau";
   font-weight: bold;
-  src: url("assets/fonts/LibertinusSans-Bold.otf");
+  src: url("assets/fonts/Ysabeau-Bold.otf");
 }
 
 :focus-visible {
@@ -15,33 +15,38 @@
 
 html {
   font-kerning: normal;
-  font-family: "Libertinus Sans", sans-serif;
+  font-family: "Ysabeau", sans-serif;
   font-variant-numeric: proportional-nums oldstyle-nums;
   font-size: 16px;
   line-height: 1.25rem;
-
-  background-color: oklch(calc(1 - 1 / 32) calc(1 / 128) calc(1 / 6 * 1turn));
-  color: oklch(calc(1 / 4) 0 0);
-
-  display: grid;
-  justify-content: center;
 }
 
-body {
-  max-inline-size: 36rem;
-  margin-block: 1rlh;
-  margin-inline: 1rem;
+@media screen and (width >= calc((36 + 2) * 24px)) {
+  html {
+    font-size: 24px;
+  }
+}
+
+html {
+  padding-block: 1rlh;
+  padding-inline: 1rem;
+
+  display: grid;
+  grid: 100% / min(36rem, 100%);
+  justify-content: center;
 }
 
 h1 {
   line-height: 1.5rlh;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 h1 small {
   font-size: 1rem;
+  font-weight: normal;
   line-height: 1em;
-  vertical-align: middle;
+  vertical-align: calc(7 / 16 * 1rex);
 }
 
 address {
@@ -65,21 +70,60 @@ li > :not(cite) {
 abbr:not(.no-sc),
 h2 {
   font-variant-caps: all-small-caps;
-  letter-spacing: calc(1 / 16 * 1em);
+  letter-spacing: calc(1em / 16);
+}
+
+.lucide {
+  height: 0.75rem;
+  width: 0.75rem;
+  vertical-align: calc(-1 / 6 * 0.75rem);
+}
+
+html {
+  background-color: #faf5f1;
+  color: #2b2b2b;
 }
 
 a {
-  color: oklch(calc(7 / 16) calc(1 / 8) calc(5 / 6 * 1turn));
+  color: #634492;
 }
 
-img.icon {
-  height: 0.75rem;
-  width: 0.75rem;
-  vertical-align: middle;
-}
-
-@media screen and (width >= calc((36 + 2) * 24px)) {
+@media screen and (prefers-color-scheme: dark) {
   html {
-    font-size: 24px;
+    background-color: #151515;
+    color: #e0dad6;
+  }
+
+  a {
+    color: #b495eb;
+  }
+}
+
+@media screen and (prefers-contrast: more) {
+  html {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    color: #7a43c0;
+  }
+}
+
+@media screen and (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  html {
+    background-color: black;
+    color: white;
+  }
+
+  a {
+    color: #ab77f8;
+  }
+}
+
+@media print {
+  html {
+    background-color: white;
+    color: black;
   }
 }
